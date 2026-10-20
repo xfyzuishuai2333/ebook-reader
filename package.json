@@ -1,0 +1,27 @@
+{
+  "name": "ebook-reader",
+  "productName": "飞扬阅读器",
+  "version": "1.0.0",
+  "description": "飞扬阅读器 —— Electron 桌面电子书阅读器（TXT / EPUB）",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . 飞扬阅读器 --platform=win32 --arch=x64 --out=dist --overwrite"
+  },
+  "keywords": [
+    "electron",
+    "ebook",
+    "reader",
+    "epub",
+    "txt"
+  ],
+  "author": "许飞扬",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^44.9.1"
+  },
+  "dependencies": {
+    "jszip": "^3.10.2"
+  }
+}

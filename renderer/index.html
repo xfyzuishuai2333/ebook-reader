@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>飞扬阅读器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== 顶部栏 ===== -->
+  <header class="topbar">
+    <div class="brand">📖 飞扬阅读器 <span class="ver">v1.0</span></div>
+    <div class="topbar-actions">
+      <button id="btnImport" class="btn btn-primary">＋ 导入 TXT</button>
+    </div>
+  </header>
+
+  <!-- ===== 书架视图 ===== -->
+  <main id="shelfView" class="shelf">
+    <div class="shelf-head">
+      <h2>我的书架</h2>
+      <span id="todayStats" class="today-stats"></span>
+    </div>
+    <div id="bookGrid" class="book-grid"></div>
+    <div id="emptyTip" class="empty-tip">
+      <p class="empty-icon">📚</p>
+      <p>书架还是空的，点击右上角「导入 TXT」开始阅读</p>
+    </div>
+  </main>
+
+  <!-- ===== 阅读视图 ===== -->
+  <main id="readerView" class="reader" hidden>
+    <div class="reader-toolbar">
+      <button id="btnBack" class="btn btn-ghost">← 书架</button>
+      <div id="readerTitle" class="reader-title"></div>
+      <div class="toolbar-right">
+        <span id="readerPct" class="reader-pct">0%</span>
+      </div>
+    </div>
+    <div id="readerScroll" class="reader-scroll">
+      <h1 id="readerBookName" class="reader-book-name"></h1>
+      <div id="readerContent" class="reader-content"></div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
