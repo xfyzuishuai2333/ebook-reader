@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-packager . 飞扬阅读器 --platform=win32 --arch=x64 --out=dist --overwrite"
+    "pack": "electron-packager . FeiyangReader --platform=win32 --arch=x64 --out=dist --overwrite --app-version=1.1.0"
   },
   "keywords": [
     "electron",
@@ -19,7 +19,8 @@
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
-    "electron": "^44.9.1"
+    "electron": "^44.9.1",
+    "electron-packager": "^17.1.2"
   },
   "dependencies": {
     "jszip": "^3.10.2"
