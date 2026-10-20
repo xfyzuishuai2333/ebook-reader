@@ -6,12 +6,12 @@
   <title>飞扬阅读器</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="light">
   <!-- ===== 顶部栏 ===== -->
-  <header class="topbar">
-    <div class="brand">📖 飞扬阅读器 <span class="ver">v1.0</span></div>
+  <header class="topbar" id="topbar">
+    <div class="brand">📖 飞扬阅读器 <span class="ver">v1.1</span></div>
     <div class="topbar-actions">
-      <button id="btnImport" class="btn btn-primary">＋ 导入 TXT</button>
+      <button id="btnImport" class="btn btn-primary">＋ 导入书籍</button>
     </div>
   </header>
 
@@ -24,27 +24,51 @@
     <div id="bookGrid" class="book-grid"></div>
     <div id="emptyTip" class="empty-tip">
       <p class="empty-icon">📚</p>
-      <p>书架还是空的，点击右上角「导入 TXT」开始阅读</p>
+      <p>书架还是空的，点击右上角「导入书籍」开始阅读</p>
+      <button id="btnSample" class="btn">✨ 载入示例书体验</button>
     </div>
   </main>
 
   <!-- ===== 阅读视图 ===== -->
   <main id="readerView" class="reader" hidden>
-    <div class="reader-toolbar">
+    <!-- 工具栏 -->
+    <div class="reader-toolbar" id="readerToolbar">
       <button id="btnBack" class="btn btn-ghost">← 书架</button>
       <div id="readerTitle" class="reader-title"></div>
       <div class="toolbar-right">
+        <button id="btnFontDown" class="btn btn-icon" title="减小字号">A-</button>
+        <button id="btnFontUp" class="btn btn-icon" title="增大字号">A+</button>
+        <button id="btnTheme" class="btn btn-icon" title="切换主题">🌓</button>
+        <button id="btnToc" class="btn btn-icon" title="目录">☰</button>
         <span id="readerPct" class="reader-pct">0%</span>
       </div>
     </div>
-    <div id="readerScroll" class="reader-scroll">
-      <h1 id="readerBookName" class="reader-book-name"></h1>
-      <div id="readerContent" class="reader-content"></div>
+
+    <div class="reader-body">
+      <!-- 目录侧栏（v1.1 新增：点击切换章节） -->
+      <aside id="tocPanel" class="toc-panel" hidden>
+        <div class="toc-head">目录 <span id="tocCount" class="toc-count"></span></div>
+        <div id="tocList" class="toc-list"></div>
+      </aside>
+
+      <!-- 正文 -->
+      <div id="readerScroll" class="reader-scroll">
+        <div class="reader-chapter">
+          <h2 id="chapterTitle" class="chapter-title"></h2>
+          <div id="readerContent" class="reader-content"></div>
+        </div>
+        <div class="chapter-nav">
+          <button id="btnPrev" class="btn">← 上一章</button>
+          <span id="chapterPos" class="chapter-pos"></span>
+          <button id="btnNext" class="btn">下一章 →</button>
+        </div>
+      </div>
     </div>
   </main>
 
   <div id="toast" class="toast" hidden></div>
 
+  <script src="lib/jszip.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "ebook-reader",
   "productName": "飞扬阅读器",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "飞扬阅读器 —— Electron 桌面电子书阅读器（TXT / EPUB）",
   "main": "main.js",
   "scripts": {

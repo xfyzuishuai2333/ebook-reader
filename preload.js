@@ -4,8 +4,10 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('ebook', {
-  // 弹出系统文件对话框选择书籍，返回 {format,name,path,size,text} 或 null
+  // 弹出系统文件对话框选择书籍（txt/epub）
   openBook: () => ipcRenderer.invoke('dialog:openBook'),
   // 按磁盘路径重新读取书籍内容（书架继续阅读）
-  readByPath: (p) => ipcRenderer.invoke('book:readByPath', p)
+  readByPath: (p) => ipcRenderer.invoke('book:readByPath', p),
+  // 载入内置示例书
+  loadSample: () => ipcRenderer.invoke('book:loadSample')
 });
